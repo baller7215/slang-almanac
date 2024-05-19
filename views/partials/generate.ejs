@@ -1,0 +1,43 @@
+
+<div class="definitions">
+    <!-- if result is given -->
+    <% if (locals.word && locals.definitions) { %>
+
+        <!-- arrow button -->
+        <div class="arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+                <a href="#generation">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+                </a>
+            </svg>
+        </div>
+        
+        <!-- use bootstrap cards to style each definition -->
+        <div id="generation">
+            <!-- represent word that is given -->
+            <h1><%= word %></h1>
+            <!-- if no definition is found -->
+            <% if (definitions.length === 0) { %>
+                <h3>¯\_(ツ)_/¯
+                    Sorry, we couldn't find: <code><%= locals.word %></code>
+                </h3>
+            <% } %>
+            <!-- populate a card element for each definition -->
+            <% definitions.forEach((definition) => { %>
+                <div class="card bg-transparent">
+                    <div class="card-header">
+                        <code><%= definition.word %></code> by <%= definition.author %>
+                    </div>
+                    <div class="card-body">
+                        <!-- <a href="<%= definition.permalink %>"><h5 class="card-title"><%= definition.definition %></h5></a> -->
+                        <h5 class="card-title"><%= definition.definition %></h5>
+                        <p class="card-text">Example: <%= definition.example %></p>
+                        <a href="<%= definition.permalink %>" class="button" target="_blank">Link</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        
+    <% } %>
+    
+</div>

@@ -1,0 +1,6 @@
+1. choose an api
+    Random Word api: https://api-ninjas.com/api/randomword
+    Urban Dictionary api: https://rapidapi.com/community/api/urban-dictionary/
+
+
+
