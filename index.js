@@ -16,7 +16,6 @@ const random = {
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/randomword',
     headers: {
-        // 'X-Api-Key': 'xtaEZGtO+SgDwH644JBxnw==CIRJ5coIvrtZEh4K'
         'X-Api-Key': `${process.env.RANDOM_WORD_API_KEY}`
     }
 }
@@ -35,8 +34,6 @@ app.post("/random", async (req, res) => {
             url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
             params: {term: word.data.word},
             headers: {
-                // 'X-RapidAPI-Key': '96f80518famshcdc28da43994efep1c1f51jsnad01b58e6067',
-                // 'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com'
                 'X-RapidAPI-Key': `${process.env.URBAN_DICTIONARY_API_KEY}`,
                 'X-RapidAPI-Host': `${process.env.API_KEY_HOST}`
             }
@@ -64,8 +61,6 @@ app.post("/search", async (req, res) => {
             url: 'https://mashape-community-urban-dictionary.p.rapidapi.com/define',
             params: {term: req.body.searchWord},
             headers: {
-                // 'X-RapidAPI-Key': '96f80518famshcdc28da43994efep1c1f51jsnad01b58e6067',
-                // 'X-RapidAPI-Host': 'mashape-community-urban-dictionary.p.rapidapi.com'
                 'X-RapidAPI-Key': `${process.env.URBAN_DICTIONARY_API_KEY}`,
                 'X-RapidAPI-Host': `${process.env.API_KEY_HOST}`
             }
